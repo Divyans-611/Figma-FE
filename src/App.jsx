@@ -1,7 +1,8 @@
 import Header from './components/layout/Header';
 import HeroSection from './components/sections/HeroSection';
 import NorthStarSection from './components/sections/NorthStarSection';
-import WhyWeExistSection from './components/sections/WhyWeExistSection';
+import TransformLeadershipSection from './components/sections/TransformLeadershipSection';
+import EcosystemSection from './components/sections/EcosystemSection';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <main>
         <HeroSection />
         <NorthStarSection />
-        <WhyWeExistSection />
+        <TransformLeadershipSection />
+        <EcosystemSection />
       </main>
     </div>
   );
