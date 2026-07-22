@@ -2,7 +2,7 @@ import React from 'react';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen w-full flex flex-col pt-40 md:pt-[240px] pb-10 z-0 bg-[#0A0A0A]" aria-labelledby="hero-title">
+    <section id="the-institute" className="relative min-h-screen w-full flex flex-col pt-40 md:pt-[240px] pb-10 z-0 bg-[#0A0A0A]" aria-labelledby="hero-title">
       {/* Immersive Glowing Gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_75%,_rgba(0,102,255,0.45)_0%,_transparent_45%)] -z-10 pointer-events-none" aria-hidden="true"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_35%,_rgba(0,200,120,0.42)_0%,_transparent_42%)] -z-10 pointer-events-none" aria-hidden="true"></div>

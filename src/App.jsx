@@ -17,6 +17,7 @@ function App() {
         <WhyWeExistSection />
         <TransformLeadershipSection />
         <EcosystemSection />
+        <div id="contact-us"></div>
       </main>
     </div>
   );

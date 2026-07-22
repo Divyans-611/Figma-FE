@@ -50,7 +50,7 @@ const TransformLeadershipSection = () => {
   ];
 
   return (
-    <section className="w-full pt-20 md:pt-32 pb-16 md:pb-24 relative overflow-hidden bg-[linear-gradient(180deg,rgba(10,10,10,0)_0%,#00264D_100%)]" aria-labelledby="methodology-title">
+    <section id="our-approach" className="w-full pt-20 md:pt-32 pb-16 md:pb-24 relative overflow-hidden bg-[linear-gradient(180deg,rgba(10,10,10,0)_0%,#00264D_100%)]" aria-labelledby="methodology-title">
 
       <div className="max-w-[1440px] mx-auto px-5 md:px-16 relative z-10">
         

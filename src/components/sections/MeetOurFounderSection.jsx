@@ -2,7 +2,7 @@ import React from 'react';
 
 const MeetOurFounderSection = () => {
   return (
-    <section className="w-full relative bg-[#0A0A0A] overflow-hidden">
+    <section id="insights" className="w-full relative bg-[#0A0A0A] overflow-hidden">
       {/* Blend two radial gradients: Blue Glow bottom left, Green Glow top right */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_top_right,_rgba(20,164,77,0.15)_0%,_transparent_60%)] pointer-events-none -z-10" aria-hidden="true"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_bottom_left,_rgba(0,92,255,0.15)_0%,_transparent_60%)] pointer-events-none -z-10" aria-hidden="true"></div>

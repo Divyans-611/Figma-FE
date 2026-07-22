@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const navLinks = [
+  { name: 'The Institute', href: '#the-institute' },
+  { name: 'Our Approach', href: '#our-approach' },
+  { name: 'Ecosystem', href: '#ecosystem' },
+  { name: 'Insights', href: '#insights' },
+  { name: 'Contact Us', href: '#contact-us' },
+];
 
 const Header = () => {
-  const navLinks = [
-    { name: 'The Institute', href: '#the-institute' },
-    { name: 'Our Approach', href: '#our-approach' },
-    { name: 'Ecosystem', href: '#ecosystem' },
-    { name: 'Insights', href: '#insights' },
-    { name: 'Contact Us', href: '#contact-us' },
-  ];
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+    );
+
+    navLinks.forEach((link) => {
+      const id = link.href.substring(1);
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="w-full flex items-center justify-between px-5 md:px-16 py-8 md:py-10 max-w-[1440px] mx-auto absolute top-0 left-1/2 -translate-x-1/2 z-50">
@@ -29,7 +52,11 @@ const Header = () => {
             <li key={link.name}>
               <a
                 href={link.href}
-                className="text-[15px] font-sans text-[rgba(255,255,255,0.7)] hover:text-white transition-colors duration-300"
+                className={`relative text-[15px] font-sans transition-colors duration-[250ms] ${
+                  activeSection === link.href
+                    ? 'text-white font-semibold after:w-full'
+                    : 'text-[rgba(255,255,255,0.7)] hover:text-white after:w-0 hover:after:w-full'
+                } after:content-[""] after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:bg-[#005CFF] after:transition-all after:duration-[250ms]`}
               >
                 {link.name}
               </a>
