@@ -15,4 +15,4 @@ A pixel-perfect responsive landing page built from a Figma design.
 - Vercel Deployment
 
 ## Live Demo
-<vercel-link>
+https://figma-fe.vercel.app/
