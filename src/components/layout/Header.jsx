@@ -10,6 +10,7 @@ const navLinks = [
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -66,13 +67,44 @@ const Header = () => {
       </nav>
 
       {/* Hamburger Menu (Mobile) */}
-      <button className="block lg:hidden text-white p-2" aria-label="Toggle menu">
+      <button 
+        className="block lg:hidden text-white p-2" 
+        aria-label="Toggle menu"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
+          {isMobileMenuOpen ? (
+            <>
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </>
+          ) : (
+            <>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </>
+          )}
         </svg>
       </button>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-full left-0 w-full bg-[#0A0A0A] border-b border-[rgba(255,255,255,0.05)] lg:hidden flex flex-col px-5 py-4 z-40">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`text-[17px] font-sans py-4 border-b border-[rgba(255,255,255,0.05)] transition-colors ${
+                activeSection === link.href ? 'text-white font-semibold' : 'text-[rgba(255,255,255,0.7)]'
+              }`}
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+      )}
     </header>
   );
 };
